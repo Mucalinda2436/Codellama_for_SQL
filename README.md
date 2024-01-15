@@ -1,4 +1,4 @@
-# 使用LoRa在Text-to-SQL任务上微调CodeLlama 7B模型
+# 使用LoRa在Text-to-SQL任务上微调CodeLlama 7B模型（https://github.com/Mucalinda2436/Codellama_for_SQL.git）
 
 ## 步骤说明
 ### step1. 使用'fine-tuning codellama.py'文件微调7b的codellama。
