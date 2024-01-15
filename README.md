@@ -9,3 +9,5 @@
 ### 第一组参数：r=16, learning rate=2e-4, batch size=28, max_steps=400（蓝色线）
 ### 第二组参数：r=16, learning rate=2e-5, batch size=28, max_steps=200（红色线）
 ### 第三组参数：r=16, learning rate=2e-6, batch size=28, max_steps=200（绿色线）
+### 训练情况：
+![image text](https://github.com/Mucalinda2436/Codellama_for_SQL/blob/main/img_folder/%E6%88%AA%E5%B1%8F2024-01-15%2016.10.44.png)
