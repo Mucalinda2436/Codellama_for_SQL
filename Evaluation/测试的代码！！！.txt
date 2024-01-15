@@ -1,0 +1,1 @@
+python3 evaluation.py --gold /Users/minstrel./PythonProjects/Evaluation/dev_gold.sql --pred /Users/minstrel./PythonProjects/SQL清洗/codellama2_trained200_pred.sql --etype all --db /Users/minstrel./PythonProjects/Evaluation/database --table /Users/minstrel./PythonProjects/Evaluation/tables.json --progress_bar_for_each_datapoint
