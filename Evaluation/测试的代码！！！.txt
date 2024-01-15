@@ -1,1 +1,3 @@
-python3 evaluation.py --gold /Users/minstrel./PythonProjects/Evaluation/dev_gold.sql --pred /Users/minstrel./PythonProjects/SQL清洗/codellama2_trained200_pred.sql --etype all --db /Users/minstrel./PythonProjects/Evaluation/database --table /Users/minstrel./PythonProjects/Evaluation/tables.json --progress_bar_for_each_datapoint
+# 请在当前工作目录下使用此代码进行Spider验证集上的测试
+
+python3 evaluation.py --gold ./dev_gold.sql --pred ./pred.sql --etype all --db ./database --table ./tables.json --progress_bar_for_each_datapoint
