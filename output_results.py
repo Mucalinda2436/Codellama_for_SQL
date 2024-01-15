@@ -5,6 +5,7 @@ import torch
 from transformers import LlamaForCausalLM, LlamaTokenizer
 from peft import PeftModel, PeftConfig
 from torch.cuda.amp import autocast
+import re
 # 加载原模型
 base_model = "codellama/CodeLlama-7b-hf"
 model = AutoModelForCausalLM.from_pretrained(
@@ -31,5 +32,31 @@ for i in range(len(data):
         response = response[idx: ]
         responses.append(response)
     torch.cuda.empty_cache()
-with open('pred.json', 'w', encoding='utf-8') as f:
-    json.dump(responses, f)
+    
+# 清洗数据
+def clean_sql(sql):
+    # 清除换行符和制表符
+    sql = sql.replace("\n", " ").replace("\t", " ")
+
+    # 清除多余的空格
+    sql = " ".join(sql.split())
+
+    # 如果存在"### Explanation:"，将其之后的文本全部删除
+    sql = re.sub(r'###.*', '', sql)
+
+    # 检查是否SQL被分段
+    if "SELECT" not in sql:
+        # 如果没有SELECT关键字，可能是被分段了，将多行合并成一行
+        sql = " ".join(sql.split())
+
+    return sql
+    
+num = 1
+data = data1 + data2 + data3
+for i in range(len(responses)):
+    sql = responses[i]
+    cleaned_sql = clean_sql(sql)
+    with open('/Evaluation/pred.sql', 'a') as f:
+        # f.writelines(f'###SQL {num}\n')
+        f.writelines(cleaned_sql + '\n')
+        num += 1
